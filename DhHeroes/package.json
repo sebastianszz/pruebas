@@ -1,0 +1,22 @@
+{
+  "name": "dhheroes",
+  "version": "1.0.0",
+  "description": "Heroínas y Héroes Tecnológicos más representativos del ámbito de la programación.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahsz/DhHeroes.git"
+  },
+  "author": "bahsz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bahsz/DhHeroes/issues"
+  },
+  "homepage": "https://github.com/bahsz/DhHeroes#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

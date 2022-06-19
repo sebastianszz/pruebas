@@ -1,0 +1,254 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrate</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Icons -->
+    <script
+      src="https://kit.fontawesome.com/54588310a9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <!-- Logo, Eslogan, Barra de Busqueda -->
+      <div class="container-logo-search">
+        <div class="container-logo">
+          <a href="/home"
+            ><img src="images/logo-mercado-liebre.svg" alt=""
+          /></a>
+        </div>
+        <form class="container-search">
+          <input
+            type="text"
+            placeholder="Buscar productos, marcas"
+            class="noBorderI"
+          />
+          <button>
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <div class="eslogan">
+          <p>
+            <i class="fa-solid fa-hand-holding-dollar"></i>Comprá en cuotas y
+            sin tarjeta de crédito
+          </p>
+        </div>
+      </div>
+
+      <!-- Navegacion -->
+      <nav class="navigation">
+        <ul class="nav-1">
+          <li><a href="/home">Ofertas</a></li>
+          <li><a href="/stores">Tiendas Oficiales</a></li>
+          <li><a href="/sell">Vender</a></li>
+          <li><a href="/help">Ayuda</a></li>
+        </ul>
+        <ul class="nav-2">
+          <li>
+            <a href="/register"
+              >Creá tu cuenta<i class="fa-solid fa-id-card"></i
+            ></a>
+          </li>
+          <li>
+            <a href="/login"
+              >Ingresá<i class="fa-solid fa-right-to-bracket"></i
+            ></a>
+          </li>
+          <li>
+            <a href="/cartshop"
+              >Mis compras<i class="fa-solid fa-basket-shopping"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="burger-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </header>
+    <main class="main-register">
+      <h2>Registrate</h2>
+      <form action="login" method="post" id="register" name="register">
+        <!--! Nombre y apellido -->
+        <label for="name" class="noBorder">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Nombre y apellido"
+            maxlength="30"
+            required
+          />
+        </label>
+        <!--! Nombre de usuario -->
+        <label for="username" class="noBorder">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Nombre de usuario"
+            maxlength="20"
+            required
+          />
+        </label>
+        <!--! Email -->
+        <label for="email" class="noBorder">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            maxlength="40"
+            required
+          />
+        </label>
+        <!--! Fecha de nacimiento -->
+        <label for="create_at" class="width-70">
+          <h3>Fecha de nacimiento</h3>
+          <input
+            type="date"
+            name="create_at"
+            id="create_at"
+            class="noBorderI"
+            value="2003-01-01"
+            max="2003-01-01"
+          />
+        </label>
+        <!--! Domicilio -->
+        <label for="address" class="width-70">
+          <h3>Domicilio</h3>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            placeholder="Calle 100 # 12"
+            class="noBorderI"
+            maxlength="30"
+            required
+          />
+        </label>
+        <!--! Perfil Comprador/Vendedor -->
+        <label class="width-70">
+          <h3>Perfil:</h3>
+          <select name="categoria" id="" class="noBorderI">
+            <option value="Comprador">Comprador</option>
+            <option value="indumentaria">Vendedor</option>
+          </select>
+        </label>
+        <!--! Categorias -->
+        <label for="" class="width-70">
+          <h3>Catagoria:</h3>
+
+          <p>
+            <input
+              type="checkbox"
+              name="category"
+              value="electro"
+              id="category"
+            />
+            Electro
+          </p>
+
+          <p>
+            <input type="checkbox" name="category" value="moda" id="category" />
+            Moda
+          </p>
+
+          <p>
+            <input
+              type="checkbox"
+              name="category"
+              value="hogar"
+              id="category"
+            />
+            Hogar
+          </p>
+
+          <p>
+            <input
+              type="checkbox"
+              name="category"
+              value="juguetería"
+              id="category"
+            />
+            Juguetería
+          </p>
+
+          <p>
+            <input type="checkbox" name="category" value="vida" id="category" />
+            Vida Sana
+          </p>
+        </label>
+        <!--! foto de usuario -->
+        <label for="imguser" class="width-70">
+          <h3>Foto de Usuario</h3>
+          <input type="file" name="imguser" accept="image/*" id="imguser" />
+        </label>
+        <!--! Contraseña -->
+        <label for="password" class="width-70">
+          <h3>Contraseña</h3>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Contraseña"
+            class="noBorderI"
+            maxlength="30"
+            required
+          />
+        </label>
+        <label for="passwordConf" class="width-70">
+          <h3>Confirmar Contraseña</h3>
+          <input
+            type="password"
+            id="passwordConf"
+            name="passwordConf"
+            placeholder="Repite Contraseña"
+            class="noBorderI"
+            maxlength="30"
+            required
+          />
+        </label>
+        <input type="submit" value="Enviar" class="button" />
+        <input
+          type="reset"
+          form="register"
+          value="Restablecer"
+          class="button"
+        />
+      </form>
+    </main>
+    <footer>
+      <ul>
+        <li>
+          <i class="fa-solid fa-credit-card"></i>
+          <h4>Pagá con tarjeta o en efectivo</h4>
+          <p class="desc">
+            Con Mercado Liebre Cash, tenés cuotas sin interés con tarjeta o
+            efectivo en puntos de pago. ¡Y siempre es seguro!
+          </p>
+        </li>
+        <li>
+          <i class="fa-solid fa-gift"></i>
+          <h4>Envío gratis desde $ 2.500</h4>
+          <p class="desc">
+            Solo por estar registrad@ en Mercado Liebre tenés envíos gratis en
+            miles de productos. Es un beneficio de Mercado Puntos.
+          </p>
+        </li>
+        <li>
+          <i class="fa-solid fa-user-shield"></i>
+          <h4>Seguridad, de principio a fin</h4>
+          <p class="desc">
+            ¿No te gusta? ¡Devolvelo! En Mercado Liebre, no hay nada que no
+            puedas hacer, porque estás siempre protegid@.
+          </p>
+        </li>
+      </ul>
+      <p class="derechos">Copyright © 1999-2020 MercadoLiebre S.R.L.</p>
+    </footer>
+  </body>
+</html>

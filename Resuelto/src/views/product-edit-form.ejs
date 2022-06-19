@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Include Head -->
+  <%- include('partials/head', {title: 'Editando: ' + '¿?'}) %>
+  <body>
+    <!-- Header -->
+    <%- include('partials/headerNavbar') %>
+    <!-- /Header -->
+
+    <% for(let i = 0; i < productToEdit.length; i++){ %>
+    <div class="container products-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="products-title">
+            Estás editando: <i><%= productToEdit[i].name %></i>
+          </h2>
+        </div>
+      </div>
+      <div class="col-12">
+        <form action="/products/<%=productToEdit[i].id%>/update?_method=PUT" method="POST">
+          <div class="row product-detail">
+            <div
+              class="container"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <label
+                for="imagenDelProducto"
+                style="
+                  font-size: 20px;
+                  padding: 10px;
+                  background-color: var(--yellow);
+                  border-radius: 20px;
+                "
+              >
+                <input
+                  type="file"
+                  name="imagenDelProducto"
+                  id="imagenDelProducto"
+                  class="inputfile custom"
+                  style="visibility: hidden"
+                />
+                <h3 style="position: absolute; top: -20px">
+                  Selecciona una imagen
+                </h3>
+              </label>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="name" class="form-label">Nombre del producto:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Ej: Zapatillas Reebok"
+                class="form-input"
+                value="<%= productToEdit[i].name %>"
+                required
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="price" class="form-label">Precio del producto:</label>
+              <input
+                type="text"
+                id="price"
+                name="price"
+                placeholder="Ej: 5678"
+                class="form-input"
+                value="<%= productToEdit[i].price %>"
+                required
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="discount" class="form-label">Descuento:</label>
+              <input
+                type="text"
+                id="discount"
+                name="discount"
+                placeholder="Ej: 15"
+                class="form-input"
+                onKeyPress="if(this.value.length==2) return false;"
+                required
+                value="<%= productToEdit[i].discount %>"
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="category" class="form-label">Categoría:</label>
+              <select name="category" id="category" class="form-input" required>
+                <option value="" <%= productToEdit[i].descuento == 0 ? "selected" : null %>>Elegí</option>
+                <option value="in-sale" <%= productToEdit[i].descuento != 0 ? "selected" : null %>>En oferta</option>
+                <option value="visited">Últimos agregados</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="description" class="form-label">Descipción:</label>
+              <textarea name="description" id="description" class="form-input">
+<%= productToEdit[i].description %></textarea
+              >
+            </div>
+            <div class="col-12">
+              <input
+                type="submit"
+                class="buy-now-button"
+                style="cursor: pointer"
+                value="Guardar producto"
+              >
+              </input>
+              <a
+                class="buy-now-button"
+                style="cursor: pointer; background-color: red;"
+                href="/products/<%= productToEdit[i].id %>"
+              >Cancelar
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <% } %>
+    <!-- /todos los productos -->
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+  </body>
+</html>

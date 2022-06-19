@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CURD</title>
+    <!--! CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!--! CSS -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"
+    />
+    <!--! Default theme -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"
+    />
+  </head>
+  <body>
+    <!--' Diseño -->
+    <div class="container mt-4 shadow-lg p-3 mb-5 bg-body rounded">
+      <button
+        id="btnCreate"
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#modalArticle"
+      >
+        Crear un Producto
+      </button>
+      <table id="articleTable" class="table mt-2 table-bordered table-striped">
+        <thead>
+          <tr class="text-center">
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="products-tbody"></tbody>
+      </table>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalArticle"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Articulo</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="products-form-create">
+              <div class="mb-3">
+                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+              </div>
+              <div class="mb-3">
+                <label for="name" class="col-form-label">Nombre:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  autofocus
+                />
+              </div>
+              <div class="mb-3">
+                <label for="description" class="col-form-label">Descripción:</label>
+                <textarea 
+                class="form-control"
+                id="description"
+                name="description"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="price" class="col-form-label">Precio:</label>
+                <input 
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  name="price"
+                ></input>
+              </div>
+              <div class="mb-3">
+                <label for="stock" class="col-form-label">Cantidad de Productos:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="stock"
+                  name="stock"
+                ></input>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar Producto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--! JavaScript -->
+    <!-- <script>
+      let url = 'https://jsonplaceholder.typicode.com/users'
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => mostrarData(data))
+        .catch((error) => console.log(error));
+
+        const mostrarData = (data) =>{
+          console.log(data)
+          let body = ''
+          for (let i = 0; i < data.length; i++){
+            body += `
+  <tr>
+    <td>${data[i].id}</td>
+    <td>${data[i].name}</td>
+    <td>${data[i].username}</td>
+    <td>${data[i].email}</td>
+    <td class="text-center"><a class="btnEditar btn btn-primary">Editar</a><a class="btnBorrar btn btn-danger">Borrar</a></td>
+  </tr>
+  `
+          }
+          document.getElementById('products-tbody').innerHTML = body
+        }
+    </script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <!--! JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!--! JavaScript -->
+    <script src="/index.js"></script>
+  </body>
+</html>

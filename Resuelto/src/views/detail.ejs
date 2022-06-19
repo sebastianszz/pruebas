@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Include Head -->
+  <%- include('partials/head', {title: '¿?'}) %>
+  <body>
+    <!-- Header -->
+    <%- include('partials/headerNavbar') %>
+    <!-- /Header -->
+
+    <!-- product detail -->
+    <% for(let i =0; i < detailProduct.length; i++){ %>
+    <div class="container products-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="products-title">
+            Detalle del producto: <%= detailProduct[i].name %>
+          </h2>
+        </div>
+      </div>
+      <div class="product-detail">
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <img
+              src="/images/products/<%= detailProduct[i].image %>"
+              alt="product image"
+              class="product-detail-img"
+            />
+            <p class="product-detail-description">
+              <%= detailProduct[i].description %>
+            </p>
+          </div>
+          <div class="col-12 col-lg-4">
+            <article class="product-detail-info">
+              <h2 class="product-detail-title"><%= detailProduct[i].name %></h2>
+              <% if (detailProduct[i].discount > 0) { %>
+              <p class="product-detail-price small">
+                <span>$<%= detailProduct[i].price %></span>
+                /
+                <b><%= detailProduct[i].discount %>% OFF</b>
+              </p>
+              <p class="product-detail-price">
+                $<%= detailProduct[i].price - detailProduct[i].discount *
+                detailProduct[i].price / 100 %>
+              </p>
+              <% } %> <% if (detailProduct[i].discount == 0) { %>
+              <p class="product-detail-price">$<%= detailProduct[i].price %></p>
+              <% } %>
+              <ul class="actions-list">
+                <li>
+                  <i class="fas fa-credit-card"></i>
+                  <p>Pagá en 12 cuotas sin interes de:</p>
+                </li>
+                <li class="margenDescuento">
+                  <p class="product-detail-price">
+                    $<%= (detailProduct[i].price / 12).toFixed(2) %>
+                  </p>
+                </li>
+                <li>
+                  <i class="fas fa-store"></i>
+                  <p>Retiro gratis en locales del vendedor</p>
+                </li>
+              </ul>
+
+              <a href="#" class="buy-now-button">COMPRAR AHORA</a>
+              <hr />
+
+              <a
+                href="/products/<%= detailProduct[i].id %>/edit"
+                class="action-button edit"
+              >
+                EDITAR PRODUCTO
+              </a>
+              <form
+                action="/products/<%= detailProduct[i].id %>?_method=DELETE"
+                method="POST"
+                style="display: inline-flex"
+              >
+                <button type="submit" class="action-button delete">
+                  ELIMINAR
+                </button>
+              </form>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% } %>
+    <!-- /product detail -->
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+  </body>
+</html>
